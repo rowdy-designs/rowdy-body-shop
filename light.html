@@ -1,0 +1,263 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rowdy Body Shop — Based Outta Indiana</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700&family=Barlow:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root{--acc:#f97316;--bg:#f8fafc;--panel:#f1f5f9;--mid:#e8edf3;--text:#0f172a;--border:rgba(239,68,68,0.2);--glow:0 0 40px rgba(239,68,68,0.1);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Barlow',sans-serif;font-weight:300;overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1.1rem 7vw;display:flex;justify-content:space-between;align-items:center;background:rgba(248,250,252,0.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border);}
+.nav-brand{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:3px;color:var(--text);text-decoration:none;}
+.nav-brand em{color:var(--acc);font-style:normal;}
+.nav-links{display:flex;gap:2.5rem;list-style:none;}
+.nav-links a{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:rgba(15,23,42,0.42);text-decoration:none;transition:color .2s;}
+.nav-links a:hover{color:var(--acc);}
+@media(max-width:640px){.nav-links{display:none;}}
+#hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 7vw 9vh;overflow:hidden;}
+.hero-img{position:absolute;inset:0;background-image:url('https://images.pexels.com/photos/17429097/pexels-photo-17429097.jpeg?auto=compress&cs=tinysrgb&w=1600');background-size:cover;background-position:center 40%;}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.92) 0%,rgba(0,0,0,0.5) 50%,rgba(0,0,0,0.18) 100%),linear-gradient(to right,rgba(0,0,0,0.6) 0%,transparent 65%);}
+.hero-content{position:relative;z-index:2;max-width:780px;}
+.hero-eyebrow{font-family:'Barlow Condensed',sans-serif;font-size:clamp(10px,1.1vw,13px);font-weight:600;letter-spacing:7px;color:var(--acc);text-transform:uppercase;margin-bottom:1.2rem;display:flex;align-items:center;gap:14px;animation:fadeUp .8s ease both;}
+.hero-eyebrow::before{content:'';width:30px;height:1px;background:var(--acc);}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,6vw,72px);line-height:.87;letter-spacing:2px;color:#fff;animation:fadeUp .8s .12s ease both;}
+.hero-title span{color:var(--acc);display:block;}
+.hero-sub{margin-top:2rem;font-size:clamp(13px,1.4vw,16px);color:rgba(255,255,255,0.6);max-width:420px;line-height:1.75;animation:fadeUp .8s .24s ease both;}
+.hero-cta{margin-top:2.5rem;display:flex;gap:1rem;flex-wrap:wrap;animation:fadeUp .8s .36s ease both;}
+.hero-badge{position:absolute;top:50%;right:7vw;transform:translateY(-50%);z-index:2;width:clamp(110px,13vw,155px);height:clamp(110px,13vw,155px);border-radius:50%;border:1px solid rgba(239,68,68,0.3);display:flex;align-items:center;justify-content:center;animation:spin 22s linear infinite;}
+.hero-badge svg{position:absolute;width:100%;height:100%;}
+.hero-badge-inner{font-family:'Bebas Neue',sans-serif;font-size:clamp(20px,2.8vw,34px);color:var(--acc);letter-spacing:2px;animation:spinReverse 22s linear infinite;}
+@keyframes spin{from{transform:translateY(-50%) rotate(0deg);}to{transform:translateY(-50%) rotate(360deg);}}
+@keyframes spinReverse{from{transform:rotate(0deg);}to{transform:rotate(-360deg);}}
+@media(max-width:768px){.hero-badge{display:none;}}
+.scroll-hint{position:absolute;bottom:2.5rem;right:7vw;z-index:2;font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:rgba(239,68,68,0.5);writing-mode:vertical-rl;display:flex;align-items:center;gap:10px;animation:fadeUp 1s .6s ease both;}
+.scroll-hint::after{content:'';width:1px;height:40px;background:linear-gradient(to bottom,var(--acc),transparent);opacity:.5;}
+.btn-primary{padding:14px 36px;background:var(--acc);color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:4px;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:background .2s,box-shadow .2s,transform .15s;display:inline-block;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));}
+.btn-primary:hover{background:#0f172a;box-shadow:var(--glow);transform:translateY(-2px);}
+.btn-outline{padding:14px 36px;background:transparent;color:var(--acc);font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:4px;text-transform:uppercase;text-decoration:none;border:1px solid rgba(239,68,68,0.4);cursor:pointer;transition:border-color .2s,color .2s,transform .15s;display:inline-block;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));}
+.btn-outline:hover{border-color:var(--acc);color:#fff;transform:translateY(-2px);}
+.ticker-wrap{background:var(--acc);overflow:hidden;padding:11px 0;white-space:nowrap;position:relative;z-index:10;}
+.ticker-inner{display:inline-block;animation:ticker 28s linear infinite;}
+.ticker-inner span{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:#fff;padding:0 2.5rem;}
+.ticker-inner .sep{opacity:.3;padding:0;}
+@keyframes ticker{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+.sec{padding:clamp(70px,11vh,130px) 7vw;}
+.sec-label{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:600;letter-spacing:7px;color:var(--acc);text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:14px;}
+.sec-label::before{content:'';width:22px;height:1px;background:var(--acc);}
+.sec-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,5vw,60px);line-height:.9;letter-spacing:1px;margin-bottom:1.5rem;}
+#services{background:var(--panel);border-top:1px solid var(--border);}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:3.5rem;}
+@media(max-width:900px){.services-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.services-grid{grid-template-columns:1fr;}}
+.svc-card{position:relative;overflow:hidden;aspect-ratio:4/3;}
+.svc-img{position:absolute;inset:0;background-size:cover;background-position:center;background-color:var(--mid);transition:transform .6s ease;}
+.svc-card:hover .svc-img{transform:scale(1.07);}
+.svc-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.92) 0%,rgba(0,0,0,0.35) 55%,rgba(0,0,0,0.1) 100%);}
+.svc-content{position:absolute;bottom:0;left:0;right:0;padding:1.8rem 1.6rem;z-index:2;}
+.svc-num{font-family:'Bebas Neue',sans-serif;font-size:12px;letter-spacing:5px;color:var(--acc);opacity:.7;margin-bottom:.35rem;}
+.svc-name{font-family:'Barlow Condensed',sans-serif;font-size:clamp(17px,2vw,23px);font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fff;margin-bottom:.45rem;}
+.svc-desc{font-size:12.5px;color:rgba(255,255,255,0.6);line-height:1.6;max-height:0;overflow:hidden;transition:max-height .4s ease,opacity .4s;opacity:0;}
+.svc-card:hover .svc-desc{max-height:80px;opacity:1;}
+.svc-price{font-family:'Barlow Condensed',sans-serif;font-size:clamp(20px,2.4vw,28px);font-weight:600;color:var(--acc);margin-top:.75rem;}
+.svc-card:nth-child(1) .svc-img{background-image:url('https://images.pexels.com/photos/17429097/pexels-photo-17429097.jpeg?auto=compress&cs=tinysrgb&w=800');}
+.svc-card:nth-child(2) .svc-img{background-image:url('https://images.pexels.com/photos/10061763/pexels-photo-10061763.jpeg?auto=compress&cs=tinysrgb&w=800');}
+.svc-card:nth-child(3) .svc-img{background-image:url('https://images.pexels.com/photos/12478166/pexels-photo-12478166.jpeg?auto=compress&cs=tinysrgb&w=800');}
+.svc-card:nth-child(4) .svc-img{background-image:url('https://images.pexels.com/photos/8931963/pexels-photo-8931963.jpeg?auto=compress&cs=tinysrgb&w=800');}
+.svc-card:nth-child(5) .svc-img{background-image:url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?fm=jpg&q=75&w=800&auto=format&fit=crop');}
+.svc-card:nth-child(6) .svc-img{background-image:url('https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?fm=jpg&q=75&w=800&auto=format&fit=crop');}
+#why{display:grid;grid-template-columns:1fr 1fr;gap:7vw;align-items:center;padding:clamp(70px,11vh,130px) 7vw;}
+@media(max-width:780px){#why{grid-template-columns:1fr;}}
+.why-img-stack{position:relative;height:500px;}
+.why-img-a{position:absolute;top:0;left:0;width:74%;height:80%;background-size:cover;background-position:center;border:2px solid var(--border);background-image:url('https://images.pexels.com/photos/7781262/pexels-photo-7781262.jpeg?auto=compress&cs=tinysrgb&w=800');}
+.why-img-b{position:absolute;bottom:0;right:0;width:58%;height:52%;background-size:cover;background-position:center;border:2px solid var(--border);background-image:url('https://images.pexels.com/photos/9941648/pexels-photo-9941648.jpeg?auto=compress&cs=tinysrgb&w=700');}
+.why-accent{position:absolute;bottom:28px;left:-14px;padding:1rem 1.4rem;background:var(--bg);border:1px solid var(--border);border-left:3px solid var(--acc);z-index:3;}
+.why-accent strong{display:block;font-family:'Bebas Neue',sans-serif;font-size:34px;color:var(--acc);line-height:1;text-shadow:var(--glow);}
+.why-accent span{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:rgba(15,23,42,0.4);}
+.why-intro{font-size:14.5px;color:rgba(15,23,42,0.58);line-height:1.75;margin-bottom:2rem;}
+.why-list{list-style:none;}
+.why-list li{display:flex;gap:1rem;align-items:flex-start;font-size:14px;color:rgba(15,23,42,0.65);line-height:1.6;padding:.9rem 0;border-bottom:1px solid rgba(239,68,68,0.12);}
+.why-list li::before{content:'▸';color:var(--acc);flex-shrink:0;margin-top:2px;font-size:11px;}
+#booking{background:var(--panel);border-top:1px solid var(--border);}
+.booking-layout{display:grid;grid-template-columns:1fr 1fr;gap:8vw;align-items:start;}
+@media(max-width:780px){.booking-layout{grid-template-columns:1fr;}}
+.booking-aside{position:sticky;top:100px;}
+.booking-photo{width:100%;aspect-ratio:3/4;margin-top:2rem;background-size:cover;background-position:center;background-image:url('https://images.pexels.com/photos/7781262/pexels-photo-7781262.jpeg?auto=compress&cs=tinysrgb&w=800');border:1px solid var(--border);position:relative;overflow:hidden;}
+.booking-photo-label{position:absolute;bottom:1.5rem;left:1.5rem;right:1.5rem;padding:1rem 1.2rem;background:rgba(248,250,252,0.92);border-left:3px solid var(--acc);backdrop-filter:blur(8px);}
+.booking-photo-label p{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(239,68,68,0.7);margin-bottom:3px;}
+.booking-photo-label strong{font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:700;color:#0f172a;}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:2.5rem;}
+@media(max-width:440px){.form-grid{grid-template-columns:1fr;}}
+.field{display:flex;flex-direction:column;gap:8px;}
+.field.full{grid-column:1/-1;}
+.field label{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:rgba(239,68,68,0.6);}
+.field input,.field select,.field textarea{background:rgba(239,68,68,0.04);border:1px solid rgba(239,68,68,0.18);color:var(--text);font-family:'Barlow',sans-serif;font-size:14px;font-weight:300;padding:12px 15px;outline:none;width:100%;appearance:none;-webkit-appearance:none;transition:border-color .2s,background .2s;border-radius:0;}
+.field input::placeholder,.field textarea::placeholder{color:rgba(15,23,42,0.3);}
+.field select option{background:#f1f5f9;color:#0f172a;}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:rgba(239,68,68,0.5);background:rgba(239,68,68,0.07);}
+.field textarea{resize:vertical;min-height:90px;}
+footer{background:var(--panel);border-top:1px solid var(--border);padding:4rem 7vw 2.5rem;}
+.footer-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:2.5rem;padding-bottom:3rem;border-bottom:1px solid rgba(239,68,68,0.1);}
+.footer-brand{font-family:'Bebas Neue',sans-serif;font-size:40px;letter-spacing:3px;color:var(--text);line-height:1;}
+.footer-brand em{color:var(--acc);font-style:normal;}
+.footer-links{display:flex;gap:2rem;flex-wrap:wrap;align-items:flex-start;}
+.footer-links a{font-family:'Barlow Condensed',sans-serif;font-size:14px;letter-spacing:2px;color:rgba(15,23,42,0.4);text-decoration:none;transition:color .2s;}
+.footer-links a:hover{color:var(--acc);}
+.footer-copy{font-size:11px;color:rgba(15,23,42,0.3);letter-spacing:2px;padding-top:2rem;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease;}
+.reveal.in{opacity:1;transform:translateY(0);}
+.d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}
+#gallery{background:var(--bg);border-top:1px solid var(--border);}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:3rem;}
+@media(max-width:780px){.gallery-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:480px){.gallery-grid{grid-template-columns:1fr;}}
+.gallery-item{aspect-ratio:4/3;background-size:cover;background-position:center;background-color:var(--mid);transition:transform .4s ease;position:relative;overflow:hidden;}
+.gallery-item:hover{transform:scale(1.03);z-index:2;}
+#location{background:var(--panel);border-top:1px solid var(--border);}
+.map-wrap{width:100%;height:400px;background:var(--mid);border:1px solid var(--border);margin-top:2rem;overflow:hidden;position:relative;}
+.map-wrap iframe{width:100%;height:100%;border:none;}
+.gbp-row{display:flex;align-items:center;gap:.6rem;margin-top:1rem;padding:.6rem 1rem;background:rgba(0,0,0,0.02);border:1px solid var(--border);border-radius:6px;font-size:10px;letter-spacing:2px;color:var(--text);text-transform:uppercase;width:fit-content;}
+.gbp-star{color:var(--acc);font-size:14px;letter-spacing:0;}
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-brand" href="#"><em>Rowdy</em> Towing</a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#why">About</a></li>
+    <li><a href="#location">Location</a></li>
+    <li><a href="#booking">Call Now</a></li>
+  </ul>
+</nav>
+
+<section id="hero">
+  <div class="hero-img"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1 class="hero-title">Rowdy<span>Body Shop</span></h1>
+    <p class="hero-sub">Collision repair, custom paint, dent removal, and frame work. Showroom-quality finishes guaranteed.</p>
+    <div class="hero-cta">
+      <a href="#booking" class="btn-primary">Call Now — I-CAR</a>
+      <a href="#services" class="btn-outline">Our Services</a>
+    </div>
+  </div>
+  <div class="hero-badge">
+    <svg viewBox="0 0 150 150">
+      <defs><path id="cp" d="M75,75 m-55,0 a55,55 0 1,1 110,0 a55,55 0 1,1 -110,0"/></defs>
+      <text font-family="Barlow Condensed,sans-serif" font-size="10.5" font-weight="600" letter-spacing="3" fill="#f97316"><textPath href="#cp">INDIANA · TOWING · I-CAR · </textPath></text>
+    </svg>
+    <span class="hero-badge-inner">RD</span>
+  </div>
+  <div class="scroll-hint">Scroll</div>
+</section>
+
+<div class="ticker-wrap"><div class="ticker-inner">
+  <span>Collision Repair</span><span class="sep">✦</span><span>Flatbed Service</span><span class="sep">✦</span><span>Dent Removal</span><span class="sep">✦</span><span>Frame Work</span><span class="sep">✦</span><span>Jump Start</span><span class="sep">✦</span><span>Lockout Service</span><span class="sep">✦</span>
+  <span>Collision Repair</span><span class="sep">✦</span><span>Flatbed Service</span><span class="sep">✦</span><span>Dent Removal</span><span class="sep">✦</span><span>Frame Work</span><span class="sep">✦</span><span>Jump Start</span><span class="sep">✦</span><span>Lockout Service</span><span class="sep">✦</span>
+</div></div>
+
+<section id="services" class="sec">
+  <div class="reveal"><p class="sec-label">What We Do</p><h2 class="sec-title">Body Work &amp;<br>Paint</h2></div>
+  <div class="services-grid">
+    <div class="svc-card reveal d1"><div class="svc-img"></div><div class="svc-overlay"></div><div class="svc-content"><div class="svc-num">01</div><div class="svc-name">Collision Repair</div><p class="svc-desc">Full collision repair from minor dents to major damage. Factory-spec finishes — average 30-min response time, any time of day.</p><div class="svc-price">$75+</div></div></div>
+    <div class="svc-card reveal d2"><div class="svc-img"></div><div class="svc-overlay"></div><div class="svc-content"><div class="svc-num">02</div><div class="svc-name">Custom Paint</div><p class="svc-desc">Custom colors, pearls, metallics, candy finishes. Show-quality paint, exotics — flat transport to protect your vehicle.</p><div class="svc-price">$100+</div></div></div>
+    <div class="svc-card reveal d3"><div class="svc-img"></div><div class="svc-overlay"></div><div class="svc-content"><div class="svc-num">03</div><div class="svc-name">Dent Removal</div><p class="svc-desc">Paintless dent repair and traditional body work. Smooth panels again — minor breakdowns handled on-site, no tow needed.</p><div class="svc-price">$55+</div></div></div>
+    <div class="svc-card reveal d1"><div class="svc-img"></div><div class="svc-overlay"></div><div class="svc-content"><div class="svc-num">04</div><div class="svc-name">Frame Work</div><p class="svc-desc">Laser-measured frame correction. Get your vehicle back to factory spec the state or beyond? We handle long-haul transport safely.</p><div class="svc-price">$3/mi+</div></div></div>
+    <div class="svc-card reveal d2"><div class="svc-img"></div><div class="svc-overlay"></div><div class="svc-content"><div class="svc-num">05</div><div class="svc-name">Paint Matching</div><p class="svc-desc">Computerized color matching. We match any factory or custom color, ATVs, and powersports. No damage, ever.</p><div class="svc-price">$85+</div></div></div>
+    <div class="svc-card reveal d3"><div class="svc-img"></div><div class="svc-overlay"></div><div class="svc-content"><div class="svc-num">06</div><div class="svc-name">Clear Coat &amp; Detail</div><p class="svc-desc">Professional clear coat, wet sanding, and buffing for a mirror finish? Quick response, no damage entry, back on the road fast.</p><div class="svc-price">$55+</div></div></div>
+  </div>
+</section>
+
+<section id="gallery" class="sec">
+  <div class="reveal"><p class="sec-label">Our Work</p><h2 class="sec-title">Photo<br>Gallery</h2></div>
+  <div class="gallery-grid">
+    <div class="gallery-item reveal d1" style="background-image:url('https://images.pexels.com/photos/8931963/pexels-photo-8931963.jpeg?auto=compress&cs=tinysrgb&w=600')"></div>
+    <div class="gallery-item reveal d2" style="background-image:url('https://images.pexels.com/photos/7781262/pexels-photo-7781262.jpeg?auto=compress&cs=tinysrgb&w=600')"></div>
+    <div class="gallery-item reveal d3" style="background-image:url('https://images.pexels.com/photos/9941648/pexels-photo-9941648.jpeg?auto=compress&cs=tinysrgb&w=600')"></div>
+    <div class="gallery-item reveal d1" style="background-image:url('https://images.pexels.com/photos/10061763/pexels-photo-10061763.jpeg?auto=compress&cs=tinysrgb&w=600')"></div>
+    <div class="gallery-item reveal d2" style="background-image:url('https://images.pexels.com/photos/17429097/pexels-photo-17429097.jpeg?auto=compress&cs=tinysrgb&w=600')"></div>
+    <div class="gallery-item reveal d3" style="background-image:url('https://images.pexels.com/photos/12478166/pexels-photo-12478166.jpeg?auto=compress&cs=tinysrgb&w=600')"></div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="why-img-stack reveal">
+    <div class="why-img-a"></div>
+    <div class="why-img-b"></div>
+    <div class="why-accent"><strong>I-CAR</strong><span>Certified Techs</span></div>
+  </div>
+  <div>
+    <p class="sec-label reveal">Why Rowdy</p>
+    <h2 class="sec-title reveal">Expert Repairs,<br>Showroom Finish</h2>
+    <p class="why-intro reveal">Breaking down is stressful enough. We answer every call, dispatch immediately, and treat your vehicle with care.</p>
+    <ul class="why-list">
+      <li class="reveal">I-CAR certified technicians with 20+ years experience</li>
+      <li class="reveal">State-of-the-art downdraft paint booth</li>
+      <li class="reveal">Computerized color matching and laser measurement — real-time ETA on every dispatch</li>
+      <li class="reveal">Lifetime warranty on all body work — no surprise fees at drop-off</li>
+      <li class="reveal">Free estimates and insurance claim assistance</li>
+    </ul>
+    <div style="margin-top:2rem;" class="reveal"><a href="#booking" class="btn-primary">Call Now — I-CAR</a></div>
+  </div>
+</section>
+
+<section id="location" class="sec">
+  <div class="reveal"><p class="sec-label">Find Us</p><h2 class="sec-title">Our<br>Location</h2></div>
+  <div class="map-wrap reveal d1">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d196281.45678901234!2d-86.1581!3d39.7684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x886b50ffa7796a03%3A0xd68e9df640b9ea7c!2sIndianapolis%2C%20IN!5e0!3m2!1sen!2sus!4v1690000000000" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Our Location"></iframe>
+  </div>
+  <div class="reveal d2" style="margin-top:1.5rem;">
+    <div class="gbp-row"><span class="gbp-star">★★★★★</span> Verified on Google Business · I-CAR Emergency Service</div>
+  </div>
+</section>
+
+<section id="booking" class="sec">
+  <div class="booking-layout">
+    <div class="booking-aside reveal">
+      <p class="sec-label">Get a Quote</p>
+      <h2 class="sec-title">Need Body<br>Work?</h2>
+      <p style="font-size:14px;color:rgba(15,23,42,0.5);line-height:1.75;">Call us for the fastest response. Or fill out the form for non-emergency scheduling and quotes.</p>
+      <div class="booking-photo">
+        <div class="booking-photo-label"><p>Based Outta</p><strong>Indiana · I-CAR Get a Quote</strong></div>
+      </div>
+    </div>
+    <div class="reveal d1">
+      <div class="form-grid">
+        <div class="field"><label>First Name</label><input type="text" placeholder="John"></div>
+        <div class="field"><label>Last Name</label><input type="text" placeholder="Smith"></div>
+        <div class="field"><label>Phone</label><input type="tel" placeholder="(765) 000-0000"></div>
+        <div class="field"><label>Damage Description Year/Make/Model</label><input type="text" placeholder="Indianapolis, IN..."></div>
+        <div class="field"><label>Damage Description</label><input type="text" placeholder="Rear quarter, door dents..."></div>
+        <div class="field"><label>Service Needed</label><select><option value="">Select...</option><option>Emergency Tow</option><option>Flatbed Tow</option><option>Dent Removal</option><option>Frame Work</option><option>Motorcycle Tow</option><option>Lockout</option><option>Jump Start</option><option>Not Sure</option></select></div>
+        <div class="field full"><label>Additional Details</label><textarea placeholder="Describe the damage and what you need done..."></textarea></div>
+        <div class="field full"><button class="btn-primary" style="width:100%;text-align:center;border:none;" onclick="this.textContent='Request Sent ✓';this.style.background='#22c55e';setTimeout(()=>{this.textContent='Get Estimate';this.style.background=''},3000)">Get Estimate</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand"><em>Rowdy</em> Towing</div>
+    <div class="footer-links"><a href="#services">Services</a><a href="#gallery">Gallery</a><a href="#why">About</a><a href="#location">Location</a><a href="#booking">Get a Quote</a></div>
+  </div>
+  <div class="footer-copy" style="display:flex;align-items:center;justify-content:center;gap:1.25rem;flex-wrap:wrap;padding-top:1.5rem;"><span style="display:flex;align-items:center;gap:0.4rem;white-space:nowrap;"><img src="https://rowdy-designs.com/static/Icons/logo-nobg.png" alt="Rowdy Designs" style="height:18px;opacity:0.55;">Coded By <span style="color:var(--acc);font-weight:600;">Rowdy Designs</span></span></div>
+</footer>
+<script>
+const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');obs.unobserve(x.target);}}),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+<script src="https://rowdy-designs.com/widget.js"
+        data-server="https://rowdy-designs.com"
+        data-avatar="https://rowdy-designs.com/images/support-logo.gif"
+        data-color="#f97316"
+        data-name="Customer Support"
+        data-position="right">
+</script>
+</body>
+</html>
