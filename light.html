@@ -17,22 +17,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1.1rem 7vw;display:
 .nav-links a{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:rgba(15,23,42,0.42);text-decoration:none;transition:color .2s;}
 .nav-links a:hover{color:var(--acc);}
 @media(max-width:640px){.nav-links{display:none;}}
-#hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 7vw 9vh;overflow:hidden;}
-.hero-img{position:absolute;inset:0;background-image:url('https://images.pexels.com/photos/17429097/pexels-photo-17429097.jpeg?auto=compress&cs=tinysrgb&w=1600');background-size:cover;background-position:center 40%;}
+#hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 7vw;overflow:hidden;}
+.hero-img{position:absolute;inset:0;background-image:url('https://images.pexels.com/photos/17429097/pexels-photo-3806250.jpeg?auto=compress&cs=tinysrgb&w=1600');background-size:cover;background-position:center 40%;}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.92) 0%,rgba(0,0,0,0.5) 50%,rgba(0,0,0,0.18) 100%),linear-gradient(to right,rgba(0,0,0,0.6) 0%,transparent 65%);}
-.hero-content{position:relative;z-index:2;max-width:780px;}
+.hero-content{position:relative;z-index:2;max-width:600px;background:rgba(0,0,0,0.65);backdrop-filter:blur(8px);border:2px solid var(--acc);border-radius:12px;padding:3rem;margin:0 auto;}
 .hero-eyebrow{font-family:'Barlow Condensed',sans-serif;font-size:clamp(10px,1.1vw,13px);font-weight:600;letter-spacing:7px;color:var(--acc);text-transform:uppercase;margin-bottom:1.2rem;display:flex;align-items:center;gap:14px;animation:fadeUp .8s ease both;}
 .hero-eyebrow::before{content:'';width:30px;height:1px;background:var(--acc);}
 .hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,6vw,72px);line-height:.87;letter-spacing:2px;color:#fff;animation:fadeUp .8s .12s ease both;}
 .hero-title span{color:var(--acc);display:block;}
 .hero-sub{margin-top:2rem;font-size:clamp(13px,1.4vw,16px);color:rgba(255,255,255,0.6);max-width:420px;line-height:1.75;animation:fadeUp .8s .24s ease both;}
 .hero-cta{margin-top:2.5rem;display:flex;gap:1rem;flex-wrap:wrap;animation:fadeUp .8s .36s ease both;}
-.hero-badge{position:absolute;top:50%;right:7vw;transform:translateY(-50%);z-index:2;width:clamp(110px,13vw,155px);height:clamp(110px,13vw,155px);border-radius:50%;border:1px solid rgba(239,68,68,0.3);display:flex;align-items:center;justify-content:center;animation:spin 22s linear infinite;}
-.hero-badge svg{position:absolute;width:100%;height:100%;}
-.hero-badge-inner{font-family:'Bebas Neue',sans-serif;font-size:clamp(20px,2.8vw,34px);color:var(--acc);letter-spacing:2px;animation:spinReverse 22s linear infinite;}
-@keyframes spin{from{transform:translateY(-50%) rotate(0deg);}to{transform:translateY(-50%) rotate(360deg);}}
-@keyframes spinReverse{from{transform:rotate(0deg);}to{transform:rotate(-360deg);}}
-@media(max-width:768px){.hero-badge{display:none;}}
 .scroll-hint{position:absolute;bottom:2.5rem;right:7vw;z-index:2;font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:rgba(239,68,68,0.5);writing-mode:vertical-rl;display:flex;align-items:center;gap:10px;animation:fadeUp 1s .6s ease both;}
 .scroll-hint::after{content:'';width:1px;height:40px;background:linear-gradient(to bottom,var(--acc),transparent);opacity:.5;}
 .btn-primary{padding:14px 36px;background:var(--acc);color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:4px;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:background .2s,box-shadow .2s,transform .15s;display:inline-block;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));}
@@ -62,7 +56,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1.1rem 7vw;display:
 .svc-desc{font-size:12.5px;color:rgba(255,255,255,0.6);line-height:1.6;max-height:0;overflow:hidden;transition:max-height .4s ease,opacity .4s;opacity:0;}
 .svc-card:hover .svc-desc{max-height:80px;opacity:1;}
 .svc-price{font-family:'Barlow Condensed',sans-serif;font-size:clamp(20px,2.4vw,28px);font-weight:600;color:var(--acc);margin-top:.75rem;}
-.svc-card:nth-child(1) .svc-img{background-image:url('https://images.pexels.com/photos/17429097/pexels-photo-17429097.jpeg?auto=compress&cs=tinysrgb&w=800');}
+.svc-card:nth-child(1) .svc-img{background-image:url('https://images.pexels.com/photos/17429097/pexels-photo-3806250.jpeg?auto=compress&cs=tinysrgb&w=800');}
 .svc-card:nth-child(2) .svc-img{background-image:url('https://images.pexels.com/photos/10061763/pexels-photo-10061763.jpeg?auto=compress&cs=tinysrgb&w=800');}
 .svc-card:nth-child(3) .svc-img{background-image:url('https://images.pexels.com/photos/12478166/pexels-photo-12478166.jpeg?auto=compress&cs=tinysrgb&w=800');}
 .svc-card:nth-child(4) .svc-img{background-image:url('https://images.pexels.com/photos/8931963/pexels-photo-8931963.jpeg?auto=compress&cs=tinysrgb&w=800');}
@@ -146,13 +140,6 @@ footer{background:var(--panel);border-top:1px solid var(--border);padding:4rem 7
       <a href="#services" class="btn-outline">Our Services</a>
     </div>
   </div>
-  <div class="hero-badge">
-    <svg viewBox="0 0 150 150">
-      <defs><path id="cp" d="M75,75 m-55,0 a55,55 0 1,1 110,0 a55,55 0 1,1 -110,0"/></defs>
-      <text font-family="Barlow Condensed,sans-serif" font-size="10.5" font-weight="600" letter-spacing="3" fill="#f97316"><textPath href="#cp">INDIANA · TOWING · I-CAR · </textPath></text>
-    </svg>
-    <span class="hero-badge-inner">RD</span>
-  </div>
   <div class="scroll-hint">Scroll</div>
 </section>
 
@@ -180,7 +167,7 @@ footer{background:var(--panel);border-top:1px solid var(--border);padding:4rem 7
     <div class="gallery-item reveal d2" style="background-image:url('https://images.pexels.com/photos/7781262/pexels-photo-7781262.jpeg?auto=compress&cs=tinysrgb&w=600')"></div>
     <div class="gallery-item reveal d3" style="background-image:url('https://images.pexels.com/photos/9941648/pexels-photo-9941648.jpeg?auto=compress&cs=tinysrgb&w=600')"></div>
     <div class="gallery-item reveal d1" style="background-image:url('https://images.pexels.com/photos/10061763/pexels-photo-10061763.jpeg?auto=compress&cs=tinysrgb&w=600')"></div>
-    <div class="gallery-item reveal d2" style="background-image:url('https://images.pexels.com/photos/17429097/pexels-photo-17429097.jpeg?auto=compress&cs=tinysrgb&w=600')"></div>
+    <div class="gallery-item reveal d2" style="background-image:url('https://images.pexels.com/photos/17429097/pexels-photo-3806250.jpeg?auto=compress&cs=tinysrgb&w=600')"></div>
     <div class="gallery-item reveal d3" style="background-image:url('https://images.pexels.com/photos/12478166/pexels-photo-12478166.jpeg?auto=compress&cs=tinysrgb&w=600')"></div>
   </div>
 </section>
